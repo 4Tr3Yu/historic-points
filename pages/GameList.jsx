@@ -1,8 +1,37 @@
-import React from "react";
+import { sql } from "@vercel/postgres";
+import React, { useEffect, useState } from "react";
+import { ItemsList } from "../src/components/ItemsList";
 
 const GameList = () => {
+	const [games, setGames] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState(null);
+	useEffect(() => {
+		const getGame = async () => {
+			console.log('holii')
+			try {
+				console.log('trying!!')
+				const games = await sql`SELECT * from games`;
+				console.log('rows:',games)
+				setGames(rows)
+			} catch (error) {
+				console.log('error', error)
+				setError(error)
+			} finally {
+				setLoading(false)
+			}
+		};
+		getGame();
+	}, [])
+	if ( loading ) {
+		return <div className="loading">Loading...</div>
+	}
 	return (
-		<h2>Game List</h2>
+		<>
+			<h2>Game List</h2>
+			<ItemsList items={games}/>
+			
+		</>
 	)
 }
 

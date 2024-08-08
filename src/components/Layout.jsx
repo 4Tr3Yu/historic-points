@@ -1,13 +1,16 @@
 import React from "react";
+import { Gi3dMeeple } from "react-icons/gi";
 import Footer from "./Footer";
 
 const Layout = ({ children }) => {
 	return (
 		<div className="min-h-screen bg-gradient-to-tr from-orange-800 via-amber-950 to-black">
 			<header className="bg-black bg-opacity-50 text-white p-4">
-				<h1 className="text-2xl font-bold">Juegos 🀄</h1>
+				<h1 className="text-2xl font-bold">
+					<Gi3dMeeple className="inline -mt-1 mr-1"/> Ludoteca 
+				</h1>
 			</header>
-			<main className="p-4">
+			<main className="container mx-auto min-h-screen pt-5">
 				{children}
 			</main>
 			<Footer/>
