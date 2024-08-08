@@ -7,9 +7,10 @@ export function ItemsList({items}) {
       <h3 className="text-tremor-content-strong dark:text-dark-tremor-content-strong font-medium">Tremor's Hometowns</h3>
       <List className="mt-2">
         {items.map((item) => (
-          <ListItem key={item.city}>
-            <span>{item.city}</span>
-            <span>{item.rating}</span>
+          <ListItem key={item.name}>
+            <span>{item.name}</span>
+            <span>{item.location}</span>
+            <span>{item.tags}</span>
           </ListItem>
         ))}
       </List>

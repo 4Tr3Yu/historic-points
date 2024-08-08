@@ -1,4 +1,3 @@
-import { sql } from "@vercel/postgres";
 import React, { useEffect, useState } from "react";
 import { ItemsList } from "../src/components/ItemsList";
 
@@ -8,12 +7,8 @@ const GameList = () => {
 	const [error, setError] = useState(null);
 	useEffect(() => {
 		const getGame = async () => {
-			console.log('holii')
 			try {
-				console.log('trying!!')
-				const games = await sql`SELECT * from games`;
-				console.log('rows:',games)
-				setGames(rows)
+				
 			} catch (error) {
 				console.log('error', error)
 				setError(error)
