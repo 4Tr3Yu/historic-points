@@ -6,18 +6,20 @@ const GameList = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	useEffect(() => {
-		const getGame = async () => {
-			try {
-				
-			} catch (error) {
-				console.log('error', error)
-				setError(error)
-			} finally {
+		fetch('/api/games')
+			.then(response => response.json())
+			.then(data => {
+				setGames(data);
+				console.log(data)
+			})
+			.catch(error => {
+				console.error('Error fetching games:', error);
+			})
+			.finally(() => {
 				setLoading(false)
-			}
-		};
-		getGame();
+			});
 	}, [])
+
 	if ( loading ) {
 		return <div className="loading">Loading...</div>
 	}
