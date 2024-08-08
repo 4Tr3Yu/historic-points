@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ItemsList } from "../src/components/ItemsList";
+import Modal from "../src/components/Modal";
 
 const GameList = () => {
 	const [games, setGames] = useState([]);
@@ -11,7 +12,7 @@ const GameList = () => {
 	}, [])
 
 	const getGames = async () => {
-		await fetch('/api/games')
+		await fetch('api/games')
 			.then(response => response.json())
 			.then(data => {
 				setGames(data);
@@ -53,7 +54,27 @@ const GameList = () => {
 	}
 	return (
 		<>
-			<h2>Game List</h2>
+			<section className="top flex justify-between">
+				<h2 className="text-2xl">Game List</h2>
+				<button className="">Add new</button>
+			</section>
+			<Modal>
+			<form onSubmit={handleCreateGame}>
+				<input
+				type="text"
+				placeholder="Name"
+				value={newGame.name}
+				onChange={(e) => setNewGame({ ...newGame, name: e.target.value })}
+				/>
+				<input
+				type="text"
+				placeholder="Genre"
+				value={newGame.genre}
+				onChange={(e) => setNewGame({ ...newGame, genre: e.target.value })}
+				/>
+				<button className="" type="submit">Add Game</button>
+			</form>
+			</Modal>
 			<ItemsList items={games}/>
 			
 		</>
