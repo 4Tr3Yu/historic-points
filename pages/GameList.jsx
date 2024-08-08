@@ -10,7 +10,7 @@ const GameList = () => {
 			.then(response => response.json())
 			.then(data => {
 				setGames(data);
-				console.log(data)
+				console.log('data from db',data)
 			})
 			.catch(error => {
 				console.error('Error fetching games:', error);
