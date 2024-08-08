@@ -54,28 +54,30 @@ const GameList = () => {
 	}
 	return (
 		<>
-			<section className="top flex justify-between">
+			<section className="top flex justify-between px-4 mb-5">
 				<h2 className="text-2xl">Game List</h2>
-				<button className="">Add new</button>
+				<Modal >
+					<form onSubmit={handleCreateGame}>
+						<input
+						type="text"
+						placeholder="Name"
+						value={newGame.name}
+						onChange={(e) => setNewGame({ ...newGame, name: e.target.value })}
+						/>
+						<input
+						type="text"
+						placeholder="Genre"
+						value={newGame.genre}
+						onChange={(e) => setNewGame({ ...newGame, genre: e.target.value })}
+						/>
+						<button className="" type="submit">Add Game</button>
+					</form>
+				</Modal>
 			</section>
-			<Modal>
-			<form onSubmit={handleCreateGame}>
-				<input
-				type="text"
-				placeholder="Name"
-				value={newGame.name}
-				onChange={(e) => setNewGame({ ...newGame, name: e.target.value })}
-				/>
-				<input
-				type="text"
-				placeholder="Genre"
-				value={newGame.genre}
-				onChange={(e) => setNewGame({ ...newGame, genre: e.target.value })}
-				/>
-				<button className="" type="submit">Add Game</button>
-			</form>
-			</Modal>
-			<ItemsList items={games}/>
+			<section className="px-4">
+
+				<ItemsList items={games}/>
+			</section>
 			
 		</>
 	)
