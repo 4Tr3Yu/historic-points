@@ -27,7 +27,8 @@ A step by step series of examples that tell you how to get a development env run
 - Clone project
 - ```npm install```
 -```npm run dev``` or ```vercel dev```
-### Deploying
+
+### Deploying <a name = "deployment"></a>
 
 Commits to the main branch will trigger a vercel deployment, for now we are just working on Mian
 
