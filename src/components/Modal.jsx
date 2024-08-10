@@ -4,9 +4,10 @@ import React from 'react';
 const Modal = ({buttonText ,children}) => {
 	const [isOpen, setIsOpen] = React.useState(false);
 	return (
-		<div className="flex justify-center ">
+		<div className="flex justify-center border-none shadow-none ">
 			<button
-				className="flex items-center justify-center rounded-lg border border-tremor-border bg-tremor-background px-2.5 py-2 text-tremor-default font-medium text-tremor-content-strong shadow-tremor-input hover:bg-tremor-background-muted dark:border-dark-tremor-border dark:bg-dark-tremor-background dark:text-dark-tremor-content-strong dark:shadow-dark-tremor-input hover:dark:bg-dark-tremor-background-muted"
+				type="button"
+				className="border-amber-200 shadow-sm text-lg rounded-md text-white bg-amber-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 py-2 px-4 -mt-2 font-bold"
 				onClick={() => setIsOpen(true)}
 			>
 				{buttonText ? buttonText : 'Agregar'}
@@ -15,19 +16,20 @@ const Modal = ({buttonText ,children}) => {
 				open={isOpen}
 				onClose={() => setIsOpen(false)}
 				static={true}
-				className="z-[100] border-orange-400 rounded-lg"
+				className="z-[100] border-orange-400 rounded-lg shadow-none"
 			>
-				<DialogPanel className="max-w-sm text-white bg-orange-700 bg-opacity-20 ">
+				<DialogPanel className="max-w-sm text-white bg-black bg-opacity-80">
 					{children}
 				<Button
 					variant="light"
-					className="mx-auto flex items-center border min-w-36 py-2 rounded-lg"
+					className="absolute -top-3 -right-3 bg-black border-orange-300 border px-3 py-2 rounded-lg"
 					onClick={() => setIsOpen(false)}
-				>
-					Close
-				</Button>
+				>❌</Button>
 				</DialogPanel>
 			</Dialog>
+			<style>
+				{".tremor-dialog-panel {	box-shadow: none !import;}"}
+			</style>
 		</div>
 	);
 }
