@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
 					<Gi3dMeeple className="inline -mt-1 mr-1"/> Ludoteca 
 				</h1>
 			</header>
-			<main className="container mx-auto min-h-screen pt-5 text-white">
+			<main className="container p-3 mx-auto min-h-screen pt-5 text-white">
 				{children}
 			</main>
 			<Footer/>
