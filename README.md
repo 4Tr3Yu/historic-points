@@ -26,7 +26,7 @@ A step by step series of examples that tell you how to get a development env run
 
 - Clone project
 - ```npm install```
--```npm run dev``` or ```vercel dev```
+-```npm run dev``` or ```npm run dev:local```
 
 ### Deploying <a name = "deployment"></a>
 
@@ -43,3 +43,34 @@ Trying biome to lint, ask for settings for vscode
 So, first promblem came when trying to connect react to consume Vercel's postgre store, it happens that it requires ``` proccess.env ``` to work. In your JavaScript code, you can access these environment variables using ```process.env.REACT_APP_*```. However, ```process.env``` is not available in the browser directly because it's a Node.js feature.
 
 Because of this I decided to move to a serverless function to connect to the database.
+
+#### 10/08/2024
+I'm having an issue with the ```vercel.json*``` file where this config work for developing locally: 
+```
+{
+	"builds": [
+		{
+			"src": "api/**/*.js",
+			"use": "@vercel/node"
+		}
+	],
+	"routes": [
+		{
+			"src": "/api/(.*)",
+			"dest": "/api/$1"
+		}
+	]
+}
+```
+... and this one is needed for production env: 
+```
+{
+	"rewrites": [
+		{
+			"source": "/(.*)",
+			"destination": "/"
+		}
+	]
+}
+```
+I need to understand why is this and how to overcome it.
