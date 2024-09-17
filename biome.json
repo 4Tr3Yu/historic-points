@@ -8,5 +8,16 @@
 		"rules": {
 			"recommended": true
 		}
+	},
+	"formatter": {
+		"indentWidth": 4
+	},
+	"javascript": {
+		"formatter": {
+			"indentWidth": 4,
+			"quoteStyle": "double",
+			"jsxQuoteStyle": "double",
+			"semicolons": "always"
+		}
 	}
 }

@@ -92,7 +92,7 @@ export default function AddGameForm({ setGames, games }) {
 				</select>
 			</div>
 
-			<div className="form-control mb-5">
+			<div className="form-control mb-5 hidden">
 				<label
 					htmlFor="genre"
 					className="block text-sm font-lg font-bold text-amber-300"

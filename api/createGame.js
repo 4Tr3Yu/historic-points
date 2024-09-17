@@ -1,5 +1,3 @@
-// api/createGame.js
-
 import { createPool } from "@vercel/postgres";
 
 export default async function handler(req, res) {

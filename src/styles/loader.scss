@@ -11,28 +11,29 @@
 	z-index: 9999;
 	flex-wrap: wrap;
 	flex-direction: column;
-  }
-  
-  .spinner {
+}
+
+.spinner {
 	width: 36px;
 	height: 36px;
 	animation: spin 50s linear infinite;
 	margin-bottom: 36px;
 	margin-left: -15px;
 
-  }
-  
-  @keyframes spin {
+}
+
+@keyframes spin {
 	0% {
-	  transform: rotate(0deg);	
-	  translate: 0;
+		transform: rotate(0deg);
+		translate: 0;
 	}
+
 	50% {
-	  translate: -20px;
+		translate: -20px;
 	}
+
 	100% {
 		translate: 20px;
-	  transform: rotate(180deg);
+		transform: rotate(180deg);
 	}
-  }
-  
+}

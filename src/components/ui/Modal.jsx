@@ -1,17 +1,21 @@
 import { Button, Dialog, DialogPanel } from '@tremor/react';
 import React from 'react';
+import CommonButton from './CommonButton';
 
-const Modal = ({buttonText ,children}) => {
+const Modal = ({buttonText ,children, buttonType}) => {
 	const [isOpen, setIsOpen] = React.useState(false);
 	return (
 		<div className="flex justify-center border-none shadow-none ">
-			<button
+			<CommonButton onClick={() => setIsOpen(true)}>{buttonText}</CommonButton>
+			{/* <button
 				type="button"
 				className="border-amber-200 shadow-sm text-lg rounded-md text-white bg-amber-600 hover:bg-rose-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-500 py-2 px-4 -mt-2 font-bold"
 				onClick={() => setIsOpen(true)}
 			>
-				{buttonText ? buttonText : 'Agregar'}
-			</button>
+				{buttonType === 'edit' && <FaEdit />
+				}
+				{!buttonType && buttonText ? buttonText : 'Agregar'}
+			</button> */}
 			<Dialog
 				open={isOpen}
 				onClose={() => setIsOpen(false)}
