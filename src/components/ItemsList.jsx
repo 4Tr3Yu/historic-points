@@ -1,5 +1,6 @@
 import { List, ListItem } from "@tremor/react";
 import AddGameForm from "./addgame/Form";
+import CommonButton from "./ui/CommonButton";
 import Modal from "./ui/Modal";
 export default function ItemsList({ items, setGames }) {
 	return (
@@ -8,20 +9,15 @@ export default function ItemsList({ items, setGames }) {
 				{items.map((item) => (
 					<ListItem key={item.name}>
 						<span>{item.name}</span>
-						<span></span>
 						<span className="actions">
-							<Modal buttonType="edit">
-								<AddGameForm
-									setGames={setGames}
-									games={items}
-									editGame={item}
-								/>
-							</Modal>
+							<CommonButton className="text-black">
+								🗑
+							</CommonButton>
 						</span>
 					</ListItem>
 				))}
 			</List>
-      <Modal buttonType="add">
+      <Modal buttonType="add" buttonText="agregar" btnClass="text-black">
           <AddGameForm
             setGames={setGames}
             games={items}
